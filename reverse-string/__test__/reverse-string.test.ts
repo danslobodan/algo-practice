@@ -1,4 +1,4 @@
-import { reverse } from './reverse-string';
+import { reverse } from '../reverse-string';
 
 it('Returns a correctly reversed string', () => {
     const apple = reverse('apple');

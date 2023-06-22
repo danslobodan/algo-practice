@@ -1,3 +1,6 @@
+// Given any string, return the string that
+// appears most frequently
+
 export const maxChar = (str: string): string => {
     const result = str.split('').reduce(
         (acc, char) => {

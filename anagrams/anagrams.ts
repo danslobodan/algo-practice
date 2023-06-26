@@ -6,30 +6,39 @@
 // capital letters to be the same as lower case
 
 export const anagrams = (stringA: string, stringB: string): boolean => {
-    const mapA = createMap(prepare(stringA));
-    const mapB = createMap(prepare(stringB));
+    return sortString(stringA) === sortString(stringB);
+};
 
-    const charsA = Object.keys(mapA);
-    const charsB = Object.keys(mapB);
-
-    if (charsA.length !== charsB.length) return false;
-
-    return charsA.every((ch) => mapA[ch] === mapB[ch]);
+const sortString = (str: string) => {
+    return prepare(str).split('').sort().join('');
 };
 
 const prepare = (str: string) => {
     return str.replace(/[^\w]/g, '').toLowerCase();
 };
 
-interface CharMap {
-    [char: string]: number;
-}
+// #Solution #1
+// const mapA = createMap(stringA);
+// const mapB = createMap(stringB);
 
-const createMap = (str: string): CharMap => {
-    return str.split('').reduce((acc, ch) => {
-        if (!acc[ch]) acc[ch] = 0;
+// const charsA = Object.keys(mapA);
+// const charsB = Object.keys(mapB);
 
-        acc[ch]++;
-        return acc;
-    }, {} as CharMap);
-};
+// if (charsA.length !== charsB.length) return false;
+
+// return charsA.every((ch) => mapA[ch] === mapB[ch]);
+
+// interface CharMap {
+//     [char: string]: number;
+// }
+
+// const createMap = (str: string): CharMap => {
+//     const prepared = prepare(str);
+
+//     return prepared.split('').reduce((acc, ch) => {
+//         if (!acc[ch]) acc[ch] = 0;
+
+//         acc[ch]++;
+//         return acc;
+//     }, {} as CharMap);
+// };
